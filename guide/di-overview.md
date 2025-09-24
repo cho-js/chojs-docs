@@ -1,0 +1,55 @@
+# Dependency Injection
+
+**CHO** provides a simple and flexible [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) (DI)
+system to manage the creation and sharing of entities within your application. DI is a design pattern that allows a
+class to receive its dependencies from an external source rather than creating them itself. This promotes loose coupling
+and makes your code more modular, testable, and maintainable. This guide will walk you through the key concepts and
+usage of DI in **CHO**.
+
+The DI in **CHO** is achieved through [providers](di-providers.md) definitions. A provider is a recipe for creating an
+entity. Providers are registered in a DI container (the module), and each [module](di-modules.md) contains an injector
+which is responsible for managing the resolution of dependencies.
+
+Modules can import other modules, allowing you to compose your application from smaller, reusable pieces. The injector
+will look for providers in the current module first, then in the imported modules' injectors if the provider is not
+found.
+
+<img class="excalidraw" src="../public/module.svg">
+
+The DI in **CHO** supports only a single type of provider, the factory provider. A factory provider is defined by a token
+and a factory function that receives an injector as an argument for resolving dependencies, and returns the resulting entity.
+The factories in **CHO** are always asynchronous.
+
+Here is an example of defining and using providers in **CHO**:
+
+```ts
+import { Injectable, Module } from "@chojs/core";
+
+@Injectable()
+class Service {
+}
+
+@Module({
+  // registering providers
+  providers: [
+    // implicit provider definition
+    Service,
+    // explicit providers definition
+    {
+      provide: "Config",
+      factory: (injector) => {
+        return Promise.resolve({ apiUrl: "https://api.example.com" });
+      },
+    },
+    {
+      provide: ApiService,
+      factory: async (injector) => {
+        const config = await injector.resolve("Config");
+        return new ApiService(config.apiUrl);
+      },
+    },
+  ],
+})
+class AppModule {
+}
+```

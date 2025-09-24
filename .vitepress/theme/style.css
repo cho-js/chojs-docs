@@ -1,0 +1,309 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+@import "@shikijs/vitepress-twoslash/style.css";
+
+/**
+ * Colors
+ *
+ * Each colors have exact same color scale system with 3 levels of solid
+ * colors with different brightness, and 1 soft color.
+ *
+ * - `XXX-1`: The most solid color used mainly for colored text. It must
+ *   satisfy the contrast ratio against when used on top of `XXX-soft`.
+ *
+ * - `XXX-2`: The color used mainly for hover state of the button.
+ *
+ * - `XXX-3`: The color for solid background, such as bg color of the button.
+ *   It must satisfy the contrast ratio with pure white (#ffffff) text on
+ *   top of it.
+ *
+ * - `XXX-soft`: The color used for subtle background such as custom container
+ *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
+ *   on top of it.
+ *
+ *   The soft color must be semi transparent alpha channel. This is crucial
+ *   because it allows adding multiple "soft" colors on top of each other
+ *   to create a accent, such as when having inline code block inside
+ *   custom containers.
+ *
+ * - `default`: The color used purely for subtle indication without any
+ *   special meanings attached to it such as bg color for menu hover state.
+ *
+ * - `brand`: Used for primary brand colors, such as link text, button with
+ *   brand theme, etc.
+ *
+ * - `tip`: Used to indicate useful information. The default theme uses the
+ *   brand color for this by default.
+ *
+ * - `warning`: Used to indicate warning to the users. Used in custom
+ *   container, badges, etc.
+ *
+ * - `danger`: Used to show error, or dangerous message to the users. Used
+ *   in custom container, badges, etc.
+ * -------------------------------------------------------------------------- */
+
+:root {
+    --vp-c-default-1: var(--vp-c-gray-1);
+    --vp-c-default-2: var(--vp-c-gray-2);
+    --vp-c-default-3: var(--vp-c-gray-3);
+    --vp-c-default-soft: var(--vp-c-gray-soft);
+
+    /*--vp-c-brand-1: var(--vp-c-purple-1);*/
+    /*--vp-c-brand-2: var(--vp-c-purple-2);*/
+    /*--vp-c-brand-3: var(--vp-c-purple-3);*/
+    /*--vp-c-brand-soft: var(--vp-c-purple-soft);*/
+
+    --vp-c-brand-1: #c12eff;
+    --vp-c-brand-2: #9d20d0;
+    --vp-c-brand-3: #853ba2;
+    --vp-c-brand-soft: rgba(234, 122, 156, 0.14);
+
+    --vp-c-tip-1: var(--vp-c-brand-1);
+    --vp-c-tip-2: var(--vp-c-brand-2);
+    --vp-c-tip-3: var(--vp-c-brand-3);
+    --vp-c-tip-soft: var(--vp-c-brand-soft);
+
+    --vp-c-warning-1: var(--vp-c-yellow-1);
+    --vp-c-warning-2: var(--vp-c-yellow-2);
+    --vp-c-warning-3: var(--vp-c-yellow-3);
+    --vp-c-warning-soft: var(--vp-c-yellow-soft);
+
+    --vp-c-danger-1: var(--vp-c-red-1);
+    --vp-c-danger-2: var(--vp-c-red-2);
+    --vp-c-danger-3: var(--vp-c-red-3);
+    --vp-c-danger-soft: var(--vp-c-red-soft);
+}
+
+.dark {
+    --vp-c-brand-1: #cb80ea;
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+    --vp-button-brand-border: transparent;
+    --vp-button-brand-text: var(--vp-c-white);
+    --vp-button-brand-bg: var(--vp-c-brand-3);
+    --vp-button-brand-hover-border: transparent;
+    --vp-button-brand-hover-text: var(--vp-c-white);
+    --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+    --vp-button-brand-active-border: transparent;
+    --vp-button-brand-active-text: var(--vp-c-white);
+    --vp-button-brand-active-bg: var(--vp-c-brand-1);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: -webkit-linear-gradient(
+            120deg,
+            #fe346a 30%,
+            #41d1ff
+    );
+
+    --vp-home-hero-image-background-image: linear-gradient(
+            -45deg,
+            #fe346a 50%,
+            #47caff 50%
+    );
+    --vp-home-hero-image-filter: blur(44px);
+}
+
+@media (min-width: 640px) {
+    :root {
+        --vp-home-hero-image-filter: blur(56px);
+    }
+}
+
+@media (min-width: 960px) {
+    :root {
+        --vp-home-hero-image-filter: blur(68px);
+    }
+}
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+    --vp-custom-block-tip-border: transparent;
+    --vp-custom-block-tip-text: var(--vp-c-text-1);
+    --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+    --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+    --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+/**
+ * Properties table
+ * -------------------------------------------------------------------------- */
+
+table.properties td {
+    width: 90%;
+}
+
+.vp-doc table.properties tr:nth-child(2n) {
+    background-color: transparent;
+}
+
+img.excalidraw {
+    margin: 0 auto;
+    border-radius: 0.5em;
+}
+
+img.choko-end {
+    width: 3em;
+    float: right;
+    transform: translateY(1.5em);
+}
+
+.dark {
+    img.choko-end,
+    img.excalidraw {
+        filter: invert(100%);
+    }
+}
+
+.vp-doc p {
+    /*text-align: justify;*/
+}
+
+/* 2 and a half slash custom styles */
+:root {
+    /* label styles */
+    --twoandhalfslash-label-color: #595151;
+    --twoandhalfslash-label-border-color: #8888;
+    --twoandhalfslash-label-border-radius: 0.25em;
+    --twoandhalfslash-label-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+    --twoandhalfslash-label-background: antiquewhite;
+    --twoandhalfslash-label-padding: 0.6em;
+    --twoandhalfslash-label-z-index: 1000;
+    --twoandhalfslash-label-font-family: sans-serif;
+}
+
+.dark {
+    --twoandhalfslash-label-color: antiquewhite;
+    --twoandhalfslash-label-border-color: #8888;
+    --twoandhalfslash-label-border-radius: 0.25em;
+    --twoandhalfslash-label-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+    --twoandhalfslash-label-background: #595151;
+}
+
+
+/* runtimes logos */
+.runtimes {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+
+    img {
+        height: 50px;
+    }
+}
+
+/*.logo {*/
+/*    display: inline-block;*/
+/*    height: 50px;*/
+/*    margin: 0 1em;*/
+/*}*/
+
+
+
+
+
+/* 2 and a half slash custom styles end */
+.ths-label {
+    font-family: var(--twoandhalfslash-label-font-family), sans-serif;
+    position: absolute;
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    max-width: 16em;
+    text-wrap: auto;
+    padding: var(--twoandhalfslash-label-padding);
+    border-radius: var(--twoandhalfslash-label-border-radius);
+    box-shadow: var(--twoandhalfslash-label-shadow);
+    background: var(--twoandhalfslash-label-background);
+    color: var(--twoandhalfslash-label-color);
+    border-color: var(--twoandhalfslash-label-border-color);
+    z-index: var(--twoandhalfslash-label-z-index);
+}
+
+.ths-label:after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-width: 0 5px 6px;
+    display: block;
+    width: 0;
+    z-index: 1;
+    left: 10px;
+    border-color: var(--twoandhalfslash-label-background) transparent;
+}
+
+.ths-label:before {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-width: 0 5px 6px;
+    display: block;
+    width: 0;
+    z-index: 0;
+    left: 10px;
+    border-color: var(--twoandhalfslash-label-border-color) transparent;
+}
+
+.ths-label.ths-up:after {
+    top: -5px;
+}
+
+.ths-label.ths-up:before {
+    top: -6px;
+}
+
+.ths-label.ths-left:before {
+    left: -8px;
+    top: 1em;
+    transform: rotate(270deg);
+}
+
+.ths-label.ths-left:after {
+    left: -7px;
+    top: 1em;
+    transform: rotate(270deg);
+}
+
+.ths-label.ths-right:after {
+    left: calc(100% - 2px);
+    top: 1em;
+    transform: rotate(90deg);
+}
+
+.ths-label.ths-right:before {
+    left: calc(100% - 1px);
+    top: 1em;
+    transform: rotate(90deg);
+}
+
+.ths-label.ths-down:after {
+    bottom: -6px;
+    transform: rotate(180deg);
+}
+
+.ths-label.ths-down:before {
+    bottom: -7px;
+    transform: rotate(180deg);
+}
