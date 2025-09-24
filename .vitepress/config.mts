@@ -1,5 +1,5 @@
-import { defineConfig } from "vitepress";
-import { twoandhalfslash } from "twoandhalfslash";
+import {defineConfig} from "vitepress";
+import {twoandhalfslash} from "twoandhalfslash";
 
 /*
 <!-- Google tag (gtag.js) -->
@@ -44,8 +44,8 @@ export default defineConfig({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
-            { text: "Home", link: "/" },
-            { text: "Examples", link: "/markdown-examples" },
+            {text: "Home", link: "/"},
+            {text: "Examples", link: "/examples"},
         ],
 
         sidebar: [
@@ -64,15 +64,15 @@ export default defineConfig({
                         text: "Dependency Injection",
                         collapsed: true,
                         items: [
-                            { text: "DI Overview", link: "/guide/di-overview" },
-                            { text: "Providers", link: "/guide/di-providers" },
+                            {text: "DI Overview", link: "/guide/di-overview"},
+                            {text: "Providers", link: "/guide/di-providers"},
                             {
                                 text: "Injectables",
                                 link: "/guide/di-injectables",
                             },
-                            { text: "Modules", link: "/guide/di-modules" },
-                            { text: "Injector", link: "/guide/di-injector" },
-                            { text: "Testing", link: "/guide/injectables" },
+                            {text: "Modules", link: "/guide/di-modules"},
+                            {text: "Injector", link: "/guide/di-injector"},
+                            {text: "Testing", link: "/guide/injectables"},
                         ],
                     },
                     {
@@ -97,27 +97,27 @@ export default defineConfig({
                                 text: "Quick Start",
                                 link: "/guide/web-quick-start",
                             },
-                            { text: "Controllers", link: "/guide/controllers" },
-                            { text: "Providers", link: "/guide/providers" },
-                            { text: "Middlewares", link: "/guide/middlewares" },
+                            {text: "Controllers", link: "/guide/controllers"},
+                            {text: "Providers", link: "/guide/providers"},
+                            {text: "Middlewares", link: "/guide/middlewares"},
                         ],
                     },
                     {
                         text: "Event Driven Apps",
                         collapsed: true,
                         items: [
-                            { text: "Controllers", link: "/guide/x" },
-                            { text: "Providers", link: "/guide/s" },
-                            { text: "Middlewares", link: "/guide/a" },
+                            {text: "Controllers", link: "/guide/x"},
+                            {text: "Providers", link: "/guide/s"},
+                            {text: "Middlewares", link: "/guide/a"},
                         ],
                     },
                     {
                         text: "Hybrid Apps",
                         collapsed: true,
                         items: [
-                            { text: "Controllers", link: "/guide/x" },
-                            { text: "Providers", link: "/guide/s" },
-                            { text: "Middlewares", link: "/guide/a" },
+                            {text: "Controllers", link: "/guide/x"},
+                            {text: "Providers", link: "/guide/s"},
+                            {text: "Middlewares", link: "/guide/a"},
                         ],
                     },
                 ],
@@ -125,11 +125,10 @@ export default defineConfig({
             {
                 text: "Specifications",
                 items: [
-                    { text: "Dependency Injection", link: "/rfcs/di" },
-                    { text: "Applications", link: "/rfcs/application" },
-                    { text: "Command", link: "/rfcs/command" },
-                    { text: "Web", link: "/rfcs/web" },
-                    { text: "Web/Stream", link: "/rfcs/web" },
+                    {text: "Dependency Injection", link: "/specs/di"},
+                    {text: "Applications", link: "/specs/application"},
+                    {text: "Command", link: "/specs/command"},
+                    {text: "Web", link: "/specs/web"},
                 ],
             },
             {
@@ -139,7 +138,7 @@ export default defineConfig({
         ],
 
         socialLinks: [
-            { icon: "github", link: "https://github.com/ziv/cho" },
+            {icon: "github", link: "https://github.com/ziv/cho"},
         ],
     },
 });

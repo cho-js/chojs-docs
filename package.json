@@ -1,9 +1,6 @@
 {
-  "name": "chojs",
+  "name": "chojs-docs",
   "version": "0.0.0",
-  "engines": {
-    "deno": ">=2"
-  },
   "scripts": {
     "start": "vitepress dev",
     "docs:dev": "vitepress dev",
@@ -13,10 +10,8 @@
   "devDependencies": {
     "@shikijs/vitepress-twoslash": "^3.12.2",
     "@tsconfig/deno": "^1.0.11",
-    "vitepress": "^1.6.4"
-  },
-  "dependencies": {
     "esbuild": "^0.25.10",
-    "twoandhalfslash": "^0.2.2"
+    "twoandhalfslash": "^0.2.2",
+    "vitepress": "^1.6.4"
   }
 }
