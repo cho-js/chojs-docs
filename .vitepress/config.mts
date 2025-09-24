@@ -37,7 +37,7 @@ export default defineConfig({
             `,
         ],
     ],
-    base: "/cho/",
+    base: "/chojs-docs/",
 
     title: "CHO",
     description: "documentation",
